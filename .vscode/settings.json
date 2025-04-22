@@ -1,0 +1,73 @@
+{
+  // Pylance语言服务器设置
+  "python.languageServer": "Pylance",
+  "python.analysis.typeCheckingMode": "basic", // 适度类型检查，平衡性能
+  "python.analysis.diagnosticMode": "workspace", // 分析整个项目，支持跨文件跳转
+  "python.analysis.autoImportCompletions": true, // 补全时建议导入
+  "python.analysis.completeFunctionParens": true, // 补全函数时添加括号
+  "python.analysis.indexing": true, // 启用项目索引，加速跳转
+  "python.analysis.stubPath": "./stubs", // 自定义类型存根路径
+  "python.analysis.memory.maxMemory": 4096, // 增加内存限制，优化大型项目性能
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportUnusedImport": "none", // 禁用未使用导入警告，减少干扰
+    "reportMissingImports": "warning" // 将缺失导入设为警告而非错误
+  },
+  "python.analysis.extraPaths": [
+    "./src", // 项目源代码路径
+    "C:\\anaconda\\envs\\s2l\\Lib\\site-packages" // s2l环境的库路径
+  ], // 帮助Pylance找到第三方库（如PyTorch）
+
+  // 格式化设置
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true // 保存时自动排序导入
+    }
+  },
+  "black-formatter.args": ["--line-length", "88"], // Black行长度
+  "isort.args": ["--profile", "black", "--float-to-top"], // 兼容Black，优先排序导入
+  "python.formatting.provider": "none", // 禁用内置格式化
+
+  // Jupyter支持（DL书和比赛可能使用Notebook）
+  "jupyter.interactiveWindowMode": "perFile", // 每个文件独立交互窗口
+  "python.experiments.optInto": ["pythonJupyterNotebook"], // 启用Jupyter Notebook支持
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  }, // 优化Notebook工具栏位置
+
+  // 调试支持
+  "python.terminal.activateEnvironment": true, // 自动激活s2l环境
+  "debug.python.showPythonPath": true, // 显示调试时的Python路径
+  "launch": {
+    "configurations": [
+      {
+        "name": "Python: Current File",
+        "type": "python",
+        "request": "launch",
+        "program": "${file}",
+        "console": "integratedTerminal",
+        "env": {
+          "PYTHONPATH": "${workspaceFolder}\\src" // 项目路径（Windows格式）
+        },
+        "pythonPath": "C:\\anaconda\\envs\\s2l\\python.exe" // s2l环境的Python解释器
+      }
+    ]
+  },
+
+  // 比赛效率优化
+  "editor.suggestSelection": "first", // 补全建议优先显示
+  "editor.acceptSuggestionOnEnter": "smart", // 智能接受补全
+
+  // 日志与错误处理
+  "python.analysis.logLevel": "Information", // 显示Pylance诊断日志
+  "black-formatter.showNotifications": "onError" // 仅在格式化错误时通知
+
+  // Windows终端设置（可选）
+  "terminal.integrated.defaultProfile.windows": "Command Prompt", // 使用CMD以兼容Anaconda
+  "terminal.integrated.env.windows": {
+    "PATH": "${env:PATH};C:\\anaconda\\envs\\s2l" // 添加s2l环境到终端路径
+  }
+}
