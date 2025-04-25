@@ -63,7 +63,7 @@
 
   // 日志与错误处理
   "python.analysis.logLevel": "Information", // 显示Pylance诊断日志
-  "black-formatter.showNotifications": "onError" // 仅在格式化错误时通知
+  "black-formatter.showNotifications": "onError", // 仅在格式化错误时通知
 
   // Windows终端设置（可选）
   "terminal.integrated.defaultProfile.windows": "Command Prompt", // 使用CMD以兼容Anaconda
