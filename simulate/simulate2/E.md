@@ -1,9 +1,10 @@
-**点积注意力（Dot-Product Attention）**是一种广泛应用于自然语言处理和计算机视觉的注意力机制，模仿人类选择性关注信息的能力。它通过动态加权输入数据的不同部分，增强模型对关键信息的处理能力，从而提升性能。点积注意力是 Transformer 模型中常用的注意力计算方式，通过计算查询（Query）与键（Key）的点积来衡量相似度，进而为值（Value）分配权重。
+**点积注意力（Dot-Product Attention**是一种广泛应用于自然语言处理和计算机视觉的注意力机制，模仿人类选择性关注信息的能力。它通过动态加权输入数据的不同部分，增强模型对关键信息的处理能力，从而提升性能。点积注意力是 Transformer 模型中常用的注意力计算方式，通过计算查询（Query）与键（Key）的点积来衡量相似度，进而为值（Value）分配权重。
 
 现要求在 task.py 文件中实现点积注意力机制，完成 ScaledDotProductAttention 类的 forward 函数。根据点积注意力的示意图（图-1）和题目提供的逻辑，实现以下功能：
 
 # 目标
-## 类：ScaledDotProductAttention（继承 nn.Module）。
+## 类：
+ScaledDotProductAttention（继承 nn.Module）。
 
 ## 函数：
 forward(self, Q: Tensor, K: Tensor, V: Tensor) -> Tuple[Tensor, Tensor]。
